@@ -1,0 +1,22 @@
+<div class="post--item h-100 d-flex justify-content-between p-3" [style]="setBorder(item.status)">
+    <div class="post--header d-flex justify-content-between align-items-center">
+        <div class="post--name">{{ item.title }}</div>
+        <div class="post--actions d-flex justify-content-between align-items-center">
+            <div class="post--url cursor-pointer" (click)="openWindow(item.url)">
+                <fa-icon [icon]="faVideo"></fa-icon>
+            </div>
+            <div class="post--edit cursor-pointer ml-3" (click)="updatePost(item)">
+                <fa-icon [icon]="faPenAlt"></fa-icon>
+            </div>
+            <div class="post--delete cursor-pointer ml-3" (click)="deletePost(item._id)">
+                <fa-icon [icon]="faTrashAlt" ></fa-icon>
+            </div>
+        </div>
+    </div>
+    <div class="post--body">
+        <span class="post--status" [style]="setBg(item.status)">{{ startCase(item.status) }}</span>
+    </div>
+    <div class="post--footer">
+        {{ item.description }}
+    </div>
+</div>

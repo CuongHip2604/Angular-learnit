@@ -1,0 +1,28 @@
+.card {
+    max-width: 60%;
+    min-width: 40%;
+    border-radius: 0.75rem;
+    border: none;
+    z-index: 1000;
+    box-shadow: 0 0 10px rgb(0 0 0 / 50%);
+
+    &__icon--eye {
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+    }
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+.register {
+    background-image: url("../../../../assets/images/bg_login.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.overlay {
+    background: rgba(0, 0, 0, 0.5);
+    top: 0;
+}

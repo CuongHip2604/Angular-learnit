@@ -1,0 +1,118 @@
+<div class="register h-100 d-flex justify-content-center align-items-center">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title text-center text-uppercase">sign up</h4>
+        <form [formGroup]="registerForm" (ngSubmit)="register()">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Username</label>
+            <input
+              type="email"
+              class="form-control"
+              id="username"
+              formControlName="username"
+              aria-describedby="emailHelp"
+              placeholder="Username"
+            />
+            <div
+              *ngIf="username?.invalid && (username?.dirty || username?.touched)"
+              class="text-danger mt-2 pl-2"
+            >
+              <span *ngIf="username?.errors?.required">Username is required.</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              formControlName="email"
+              aria-describedby="emailHelp"
+              placeholder="Email"
+            />
+            <div
+              *ngIf="email?.invalid && (email?.dirty || email?.touched)"
+              class="text-danger mt-2 pl-2"
+            >
+              <span *ngIf="email?.errors?.required">Email is required.</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <div class="position-relative">
+              <input
+                [type]="showPassword ? 'text' : 'password'"
+                class="form-control"
+                formControlName="password"
+                id="password"
+                placeholder="Password"
+              />
+              <fa-icon
+                *ngIf="showPassword"
+                [icon]="faEye"
+                class="position-absolute card__icon--eye"
+                (click)="showPassword = false"
+              ></fa-icon>
+              <fa-icon
+                *ngIf="!showPassword"
+                [icon]="faEyeSlash"
+                class="position-absolute card__icon--eye"
+                (click)="showPassword = true"
+              ></fa-icon>
+            </div>
+            <div
+              *ngIf="password?.invalid && (password?.dirty || password?.touched)"
+              class="text-danger mt-2 pl-2"
+            >
+              <span *ngIf="password?.errors?.required">Password is required.</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password Confirm</label>
+            <div class="position-relative">
+              <input
+                [type]="showPasswordConfirm ? 'text' : 'password'"
+                class="form-control"
+                formControlName="passwordConfirm"
+                id="passwordConfirm"
+                placeholder="Password confirm"
+              />
+              <fa-icon
+                *ngIf="showPasswordConfirm"
+                [icon]="faEye"
+                class="position-absolute card__icon--eye"
+                (click)="showPasswordConfirm = false"
+              ></fa-icon>
+              <fa-icon
+                *ngIf="!showPasswordConfirm"
+                [icon]="faEyeSlash"
+                class="position-absolute card__icon--eye"
+                (click)="showPasswordConfirm = true"
+              ></fa-icon>
+            </div>
+            <div
+              *ngIf="passwordConfirm?.invalid && (passwordConfirm?.dirty || passwordConfirm?.touched)"
+              class="text-danger mt-2 pl-2"
+            >
+              <span *ngIf="passwordConfirm?.errors?.required">Password confirm is required.</span>
+            </div>
+            <div
+              *ngIf="passwordConfirm?.invalid && (passwordConfirm?.dirty || passwordConfirm?.touched)"
+              class="text-danger mt-2 pl-2"
+            >
+              <span *ngIf="passwordConfirm?.errors?.MatchPassword">The confirm password does not match new password</span>
+            </div>
+          </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <button type="submit" class="btn btn-success">Register</button>
+            <div>
+              <span>Do have a account. </span>
+              <a routerLink="/login" class="cursor-pointer">Please login</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="overlay h-100 position-fixed w-100"></div>
+  

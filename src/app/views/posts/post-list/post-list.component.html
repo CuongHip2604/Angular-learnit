@@ -1,0 +1,21 @@
+<div *ngIf="posts && posts.length; else noPost" class="post--list h-100">
+    <app-post-item *ngFor="let item of posts" [item]="item"></app-post-item>
+    <div class="post--create" (click)="createPost()">
+        <fa-icon [icon]="faPlus"></fa-icon>
+    </div>
+</div>
+
+<ng-template #noPost>
+    <div class="welcome h-100 d-flex justify-content-center align-items-center">
+      <div class="box">
+        <div class="box--header p-3">
+            <h3 class="text-center">Hello Nguyen Cuong</h3>
+        </div>
+        <div class="box--body text-center p-4">
+            <h4>Welcome to Learnit</h4>
+            <p>Click the button below to track your first skill to learn</p>
+            <button class="btn btn-primary" (click)="createPost()">Learnit</button>
+        </div>
+      </div>
+    </div>
+  </ng-template>

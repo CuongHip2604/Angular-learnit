@@ -1,0 +1,12 @@
+.post {
+    &--delete {
+        position: relative;
+    }
+
+    &--close {
+        font-size: 1.5rem;
+        position: absolute;
+        top: 8px;
+        right: 16px;
+    }
+}

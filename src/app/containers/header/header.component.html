@@ -1,0 +1,9 @@
+<header class="header d-flex justify-content-between align-items-center p-3 text-white">
+    <div routerLink="/" routerLinkActive="router-link-active"  class="header--left cursor-pointer">
+        <h5 class="mb-0 text-uppercase">Lernit</h5>
+    </div>
+    <div class="header--right d-flex">
+        <div class="header--name mr-4">{{ currentUser.username }}</div>
+        <div class="header--logout ml-4 cursor-pointer" (click)="logout()" >Logout</div>
+    </div>
+</header>

@@ -1,0 +1,66 @@
+<form [formGroup]="postForm" (ngSubmit)="updateForm()">
+  <div class="form-group mt-4">
+    <input
+      type="text"
+      class="form-control"
+      id="title"
+      formControlName="title"
+      placeholder="Title"
+    />
+    <div
+      *ngIf="title?.invalid && (title?.dirty || title?.touched)"
+      class="text-danger mt-2 pl-2"
+    >
+      <span *ngIf="title?.errors?.required">The title is required.</span>
+    </div>
+  </div>
+  <div class="form-group mt-4">
+    <textarea
+      type="text"
+      class="form-control"
+      id="description"
+      placeholder="Description"
+      formControlName="description"
+      rows="3"
+    ></textarea>
+    <div
+      *ngIf="
+        description?.invalid && (description?.dirty || description?.touched)
+      "
+      class="text-danger mt-2 pl-2"
+    >
+      <span *ngIf="description?.errors?.required"
+        >The description is required.</span
+      >
+    </div>
+  </div>
+  <div class="form-group mt-4">
+    <input
+      type="text"
+      class="form-control"
+      id="url"
+      formControlName="url"
+      placeholder="Youtube Tutorial URL"
+    />
+    <div
+      *ngIf="url?.invalid && (url?.dirty || url?.touched)"
+      class="text-danger mt-2 pl-2"
+    >
+      <span *ngIf="url?.errors?.required">The url is required.</span>
+    </div>
+  </div>
+  <div class="form-group mt-4">
+    <select
+      class="select-status"
+      formControlName="status"
+    >
+      <option *ngFor="let item of statuses" [value]="item.value">
+        {{ item.name }}
+      </option>
+    </select>
+  </div>
+  <div class="d-flex justify-content-end align-items-center">
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="button" class="btn btn-danger ml-2" (click)="cancelForm()">Cancel</button>
+  </div>
+</form>

@@ -1,0 +1,13 @@
+<div class="post--delete p-3">
+    <div class="post-header">
+        <h3>Notice</h3>
+        <fa-icon [icon]="faTimes" class="post--close cursor-pointer" (click)="onClose()"></fa-icon>
+    </div>
+    <div class="post--body mt-4 mb-0">
+        <h5>Are you sure want to delete?</h5>
+    </div>
+    <div class="post--footer d-flex justify-content-end align-items-center">
+        <button type="submit" class="btn btn-primary" (click)="onDelete()">Yes</button>
+        <button type="button" class="btn btn-danger ml-2" (click)="onClose()">No</button>
+    </div>
+</div>

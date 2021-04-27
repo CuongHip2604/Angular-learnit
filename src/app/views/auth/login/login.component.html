@@ -1,0 +1,64 @@
+<div class="login h-100 d-flex justify-content-center align-items-center">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title text-center text-uppercase">sign in</h4>
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            formControlName="email"
+            aria-describedby="emailHelp"
+            placeholder="Email"
+          />
+          <div
+            *ngIf="email?.invalid && (email?.dirty || email?.touched)"
+            class="text-danger mt-2 pl-2"
+          >
+            <span *ngIf="email?.errors?.required">Email is required.</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <div class="position-relative">
+            <input
+              [type]="showPassword ? 'text' : 'password'"
+              class="form-control"
+              formControlName="password"
+              id="exampleInputPassword1"
+              placeholder="Password"
+            />
+            <fa-icon
+              *ngIf="showPassword"
+              [icon]="faEye"
+              class="position-absolute card__icon--eye"
+              (click)="showPassword = false"
+            ></fa-icon>
+            <fa-icon
+              *ngIf="!showPassword"
+              [icon]="faEyeSlash"
+              class="position-absolute card__icon--eye"
+              (click)="showPassword = true"
+            ></fa-icon>
+          </div>
+          <div
+            *ngIf="password?.invalid && (password?.dirty || password?.touched)"
+            class="text-danger mt-2 pl-2"
+          >
+            <span *ngIf="password?.errors?.required">Password is required.</span>
+          </div>
+        </div>
+        <div class="d-flex justify-content-between align-items-center">
+          <button type="submit" class="btn btn-success">Login</button>
+          <div>
+            <span>Don't have account. </span>
+            <a routerLink="/register">Please register</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="overlay h-100 position-fixed w-100"></div>

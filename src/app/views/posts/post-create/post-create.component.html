@@ -1,0 +1,9 @@
+<div class="post--create p-3">
+    <div class="post-header">
+        <h3>What do you want to learn?</h3>
+        <fa-icon [icon]="faTimes" class="post--close cursor-pointer" (click)="onClose()"></fa-icon>
+    </div>
+    <div class="post--body">
+        <app-post-form (cancel)="onClose()" (submit)="onSubmit($event)"></app-post-form>
+    </div>
+</div>
