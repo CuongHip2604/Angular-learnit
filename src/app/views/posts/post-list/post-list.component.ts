@@ -31,7 +31,9 @@ export class PostListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.authService.currentUser.pipe(map((res) => (this.currentUser = res)));
+    this.authService.currentUser
+      .pipe(map((res) => (this.currentUser = res)))
+      .subscribe();
     this.getListPost();
     this.postService.listpost
       .pipe(
