@@ -6,6 +6,8 @@ import { PostService } from 'src/app/services/post.service';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { PostCreateComponent } from '../post-create/post-create.component';
+import { User } from 'src/app/models/user';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-post-list',
@@ -16,10 +18,12 @@ export class PostListComponent implements OnInit {
   posts: Post[] = [];
   faPlus = faPlus;
   bsModalRef!: BsModalRef;
+  currentUser!: User;
 
   constructor(
     private postService: PostService,
-    private modalService: BsModalService
+    private modalService: BsModalService,
+    private authService: AuthService
   ) {
     this.modalService.config.class = 'modal-dialog-centered modal-md';
     this.modalService.config.ignoreBackdropClick = false;
@@ -27,6 +31,7 @@ export class PostListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.authService.currentUser.pipe(map((res) => (this.currentUser = res)));
     this.getListPost();
     this.postService.listpost
       .pipe(
